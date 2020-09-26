@@ -1,0 +1,14 @@
+nav{
+    -webkit-box-shadow: 2px 3px 16px 3px rgba(0,0,0,0.64); 
+    box-shadow: 2px 3px 16px 3px rgba(0,0,0,0.64);
+}
+
+.nav-brand span{
+    color: white;
+    margin: 10px;
+    font-size: 20px;
+}
+
+.nav-brand{
+    pointer-events: none;
+}
