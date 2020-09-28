@@ -1,5 +1,15 @@
 <div class="container d-flex align-items-center" id="content_panel">
     <div class="container" id="panel_authentification">
-        <h2 id="title">Authentification</h2>      
+        <h2 id="title">Authentification</h2> 
+        <div class="container d-flex align-items-center">
+            <div id="authentification" class="container">
+                <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+                    Pseudo : <input type="text" id="pseudo" class="form-control" name="pseudo" ngModel required>
+                    Mot de passe : <input type="password" id="mdp" class="form-control" name="mdp" ngModel required>
+                    <button class="btn btn-primary" type="submit" [disabled]="f.invalid">Valider</button>
+                </form>
+                <a href="*">Inscription</a>
+            </div> 
+        </div>
     </div>
 </div>

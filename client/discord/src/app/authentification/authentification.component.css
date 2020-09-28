@@ -5,7 +5,7 @@
 
 #panel_authentification{
     width: 34%;
-    height: 47%;
+    height: 40%;
     background-color: #4682B4;
     border-radius: 10px;
     overflow: auto;
@@ -17,4 +17,21 @@
 #title{
     font-family: Comic Sans MS, Comic Sans, cursive;
     font-weight: bold;
+    font-size: 2vw;
+    margin: 20px;
 }
+
+#authentification{
+    font-size: 1vw;
+}
+
+#authentification button{
+    margin: 10px;
+    font-size: 1vw;
+}
+
+#authentification a{
+    margin: 10px;
+    color: black;
+}
+
