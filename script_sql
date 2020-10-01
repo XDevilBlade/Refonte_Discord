@@ -1,0 +1,6 @@
+create table utilisateurs(
+	id int not null,
+	pseudo varchar(100),
+	mdp varchar(100),
+	primary key (id)
+)
