@@ -13,10 +13,11 @@ import com.rtaillandier.discord.models.Utilisateurs;
 public interface UtilisateursRepository extends CrudRepository<Utilisateurs, Integer>{	
 	public Iterable<Utilisateurs> findAll();
 	
-	@Query("select * from Utilisateurs u where u._pseudo=?")
-	public Utilisateurs getUtilisateurs(String pseudo);
+	@Query("select u from Utilisateurs u where u._pseudo= :pseudo and u._mdp= :mdp")
+	public Optional<Utilisateurs> getUtilisateur(@Param("pseudo") String pseudo, @Param("mdp") String mdp);
 	
-	@Query("select * from Utilisateurs u where u._pseudo=? and u._mdp=?")
-	public Utilisateurs getUtilisateurs(String pseudo, String mdp);
+	public <S extends Utilisateurs> S save(S entity);
+	
+	public long count();
 	
 }
