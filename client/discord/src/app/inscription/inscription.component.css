@@ -5,21 +5,20 @@
     margin: 20px;
 }
 
-#authentification{
+#inscription{
     font-size: 1vw;
 }
 
-#authentification button{
+#inscription button{
     margin: 10px;
     font-size: 1vw;
 }
 
-#authentification a{
+#inscription a{
     margin: 10px;
     color: black;
 }
 
-#resultatAuth{
+#resultatInscr{
     font-weight: bold;
 }
-

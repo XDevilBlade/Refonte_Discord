@@ -6,16 +6,22 @@ import { AppComponent } from './app.component';
 import { MenuComponent } from './menu/menu.component';
 import { AuthentificationComponent } from './authentification/authentification.component';
 import { FormsModule }   from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { InscriptionComponent } from './inscription/inscription.component';
+import { AccueilComponent } from './accueil/accueil.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MenuComponent,
-    AuthentificationComponent
+    AuthentificationComponent,
+    InscriptionComponent,
+    AccueilComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     FormsModule
   ],
   providers: [],

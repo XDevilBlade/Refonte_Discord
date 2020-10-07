@@ -1,15 +1,14 @@
-<div id="content_panel_authentification">
-    <h2 id="title">Authentification</h2> 
-    <h5 id="resultatAuth"></h5>
+<div id="content_panel_inscription">
+    <h2 id="title">Inscription</h2> 
+    <h5 id="resultatInscr"></h5>
     <div class="container d-flex align-items-center">
-        <div id="authentification" class="container">
+        <div id="inscription" class="container">
             <form #f="ngForm" (ngSubmit)="onSubmit(f)">
                 Pseudo : <input type="text" id="pseudo" class="form-control" name="pseudo" ngModel required>
                 Mot de passe : <input type="password" id="mdp" class="form-control" name="mdp" ngModel required>
                 <button class="btn btn-primary" type="submit" [disabled]="f.invalid">Valider</button>
             </form>
-            <a (click)="deleteContentPanelAuthentification()" routerLink="/inscription" >Inscription</a>
+            <a routerLink="/authentification" >Retour</a>
         </div> 
     </div>
 </div>
-

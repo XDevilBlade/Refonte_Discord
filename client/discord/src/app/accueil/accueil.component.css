@@ -1,0 +1,15 @@
+#ligne_verticale_central{
+    height: 100%;
+    overflow: hidden;
+}
+
+#panel{
+    width: 34%;
+    height: 40%;
+    background-color: #4682B4;
+    border-radius: 10px;
+    overflow: auto;
+    -webkit-box-shadow: 0px 0px 9px 0px #000000; 
+    box-shadow: 0px 0px 9px 0px #000000;
+    text-align: center;
+}
