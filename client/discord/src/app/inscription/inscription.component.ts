@@ -22,15 +22,12 @@ export class InscriptionComponent implements OnInit {
 
   onSubmit(form: NgForm) {
     var informationInscription = form.value;
-    
-    var parameter : HttpParams = new HttpParams();
-    parameter = parameter.append("pseudo",informationInscription.pseudo);
-    parameter = parameter.append("mdp",informationInscription.mdp);
-
-    const options = {params : parameter, responseType: 'text' as 'text'};
+    console.log(informationInscription);
+    var body = {pseudo : informationInscription.pseudo, mdp : informationInscription.mdp};
+    const options = {responseType: 'text' as 'text'};
     
     this.httpClient
-      .put('http://localhost:8080/inscription', options )
+      .put('http://localhost:8080/inscription', body, options)
       .subscribe(
         (messageSucceed) => {
           $('#resultatInscr').html(messageSucceed);
@@ -47,8 +44,9 @@ export class InscriptionComponent implements OnInit {
       );
   }
 
-  deleteContentPanelPageAccueil(){
-    $('#content_panel_inscription').remove();
+  hideContentPanelInscription(){
+    $('#content_panel_inscription').css("display", "none");
+    $('#content_panel_authentification').css("display", "block");
   }
 
 }

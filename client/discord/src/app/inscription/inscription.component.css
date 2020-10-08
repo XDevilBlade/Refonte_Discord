@@ -1,3 +1,7 @@
+#content_panel_inscription{
+    display: none;
+}
+
 #title{
     font-family: Comic Sans MS, Comic Sans, cursive;
     font-weight: bold;
@@ -21,4 +25,12 @@
 
 #resultatInscr{
     font-weight: bold;
+}
+
+#btnRetour{
+    cursor: pointer;
+}
+
+#btnRetour:hover{
+    text-decoration: underline;
 }

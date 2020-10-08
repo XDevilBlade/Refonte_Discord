@@ -27,7 +27,7 @@ export class AuthentificationComponent implements OnInit {
     var parameter : HttpParams = new HttpParams();
     parameter = parameter.append("pseudo",informationAuthentification.pseudo);
     parameter = parameter.append("mdp",informationAuthentification.mdp);
-    console.log(parameter);
+    
     const options = {params : parameter, responseType: 'text' as 'text'};
     
     this.httpClient
@@ -48,8 +48,9 @@ export class AuthentificationComponent implements OnInit {
       );
   }
 
-  deleteContentPanelAuthentification(){
-    $('#content_panel_authentification').remove();
+  hideContentPanelAuthentification(){
+    $('#content_panel_authentification').css("display", "none");
+    $('#content_panel_inscription').css("display", "block");
   }
 
 }

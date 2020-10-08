@@ -12,12 +12,15 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.rtaillandier.discord.models.Utilisateurs;
 import com.rtaillandier.discord.repositories.UtilisateursRepository;
+
+import utilitaires.Identifiant;
 
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
@@ -32,7 +35,9 @@ public class ControllerUtilisateurs {
 	}
 	
 	@PutMapping(value = "/inscription")
-	public ResponseEntity<String> inscription(@RequestParam String pseudo, @RequestParam String mdp ) {
+	public ResponseEntity<String> inscription(@RequestBody Identifiant identifiant ) {
+		String pseudo = identifiant.getPseudo();
+		String mdp = identifiant.getMdp();
 		Optional<Utilisateurs> utilisateur = utilisateursRepository.getUtilisateur(pseudo);
 		if (utilisateur.isPresent()) {
 			return new ResponseEntity<>("Ce pseudo a déjà été utilisé", HttpStatus.CONFLICT);

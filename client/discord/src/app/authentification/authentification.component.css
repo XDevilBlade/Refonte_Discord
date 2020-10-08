@@ -23,3 +23,11 @@
     font-weight: bold;
 }
 
+#btnInscription{
+    cursor: pointer;
+}
+
+#btnInscription:hover{
+    text-decoration: underline;
+}
+
