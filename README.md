@@ -4,7 +4,7 @@
 
 Refonte du projet discord qui a été fait pendant la première année de Master Informatique parcours TI. Obligation d'utiliser d'utiliser en front Angular et en back Spring.
 
-##Technologies utilisées :
+## Technologies utilisées :
 - Spring Boot
 - Angular 9
 - Hibernate
