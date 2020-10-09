@@ -3,20 +3,24 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { MenuComponent } from './menu/menu.component';
 import { AuthentificationComponent } from './authentification/authentification.component';
 import { FormsModule }   from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { InscriptionComponent } from './inscription/inscription.component';
 import { AccueilComponent } from './accueil/accueil.component';
+import { InterfaceUtilisateurComponent } from './interface-utilisateur/interface-utilisateur.component';
+import { MenuContactsChannelsComponent } from './menu-contacts-channels/menu-contacts-channels.component';
+import { ConversationComponent } from './conversation/conversation.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    MenuComponent,
     AuthentificationComponent,
     InscriptionComponent,
-    AccueilComponent
+    AccueilComponent,
+    InterfaceUtilisateurComponent,
+    MenuContactsChannelsComponent,
+    ConversationComponent
   ],
   imports: [
     BrowserModule,
