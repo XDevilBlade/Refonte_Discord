@@ -28,7 +28,13 @@ import { ConversationComponent } from './conversation/conversation.component';
     HttpClientModule,
     FormsModule
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [
+    AppComponent
+  ],
+  bootstrap: [AppComponent],
+  entryComponents: [
+    AccueilComponent,
+    InterfaceUtilisateurComponent
+  ]
 })
 export class AppModule { }

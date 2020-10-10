@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {NgForm} from '@angular/forms';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+import {AppComponent} from '../app.component';
+import { InterfaceUtilisateurComponent } from '../interface-utilisateur/interface-utilisateur.component';
 
 declare var $: any;
 
@@ -12,9 +14,11 @@ declare var $: any;
 export class AuthentificationComponent implements OnInit {
   
   private httpClient : HttpClient;
+  private appComponent : AppComponent;
 
-  constructor(httpClient : HttpClient) { 
+  constructor(httpClient : HttpClient, appComponent : AppComponent) { 
     this.httpClient = httpClient;
+    this.appComponent = appComponent;
   }
 
   ngOnInit(): void {
@@ -36,6 +40,7 @@ export class AuthentificationComponent implements OnInit {
         (messageSucceed) => {
           $('#resultatAuth').html(messageSucceed);
           $('#resultatAuth').css("color", "green");
+          this.appComponent.createComponent(InterfaceUtilisateurComponent);
         },
         (error) => {
           var messageErreur = error.error;
@@ -48,9 +53,12 @@ export class AuthentificationComponent implements OnInit {
       );
   }
 
-  hideContentPanelAuthentification(){
+
+  hideContentPanelAuthentification(baliseAFaireApparaitre : any){
     $('#content_panel_authentification').css("display", "none");
-    $('#content_panel_inscription').css("display", "block");
+    $('#'+baliseAFaireApparaitre+'').css("display", "block");
   }
+
+
 
 }
