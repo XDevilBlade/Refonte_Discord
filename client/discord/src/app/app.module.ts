@@ -11,6 +11,9 @@ import { AccueilComponent } from './accueil/accueil.component';
 import { InterfaceUtilisateurComponent } from './interface-utilisateur/interface-utilisateur.component';
 import { MenuContactsChannelsComponent } from './menu-contacts-channels/menu-contacts-channels.component';
 import { ConversationComponent } from './conversation/conversation.component';
+import { GestionComponentService } from './services/GestionComponent/gestion-component.service';
+import { AccessInstanceAppcomponentService } from './services/AccessInstanceAppComponent/access-instance-appcomponent.service';
+
 
 @NgModule({
   declarations: [
@@ -29,7 +32,6 @@ import { ConversationComponent } from './conversation/conversation.component';
     FormsModule
   ],
   providers: [
-    AppComponent
   ],
   bootstrap: [AppComponent],
   entryComponents: [

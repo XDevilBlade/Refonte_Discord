@@ -1,6 +1,8 @@
-import { Component, OnInit, ViewChild, ViewContainerRef, ComponentFactoryResolver, Type } from '@angular/core';
+import { Component, OnInit, ViewChild, ViewContainerRef, ComponentFactoryResolver, Type, Injectable } from '@angular/core';
 import { AccueilComponent } from './accueil/accueil.component';
 import { createComponent } from '@angular/compiler/src/core';
+import { GestionComponentService } from './services/GestionComponent/gestion-component.service';
+import { AccessInstanceAppcomponentService } from './services/AccessInstanceAppComponent/access-instance-appcomponent.service';
 
 declare var $: any;
 
@@ -13,27 +15,20 @@ export class AppComponent implements OnInit{
   
   componentRef: any;
   
-  @ViewChild('messagecontainer', { read: ViewContainerRef }) entry: ViewContainerRef;
-  constructor(private resolver: ComponentFactoryResolver){
-
+  @ViewChild('authentificationcontainer', { read: ViewContainerRef }) entry: ViewContainerRef;
+  constructor(private resolver: ComponentFactoryResolver, 
+              private gestionComponentService : GestionComponentService, private accessInstanceAppcomponentService : AccessInstanceAppcomponentService){
+                this.accessInstanceAppcomponentService.changeInstanceAppComponent = this;
   }
 
   ngOnInit(){
-    const appComponent : AppComponent = this; 
+    const accessInstanceAppcomponentServiceConst = this.accessInstanceAppcomponentService;
+    const gestionComponentServiceConst = this.gestionComponentService;
     $( document ).ready(function() {
-      appComponent.createComponent(AccueilComponent);
+      gestionComponentServiceConst.createComponent(AccueilComponent, accessInstanceAppcomponentServiceConst.instanceAppComponent);
     });
-    
   }
 
-  createComponent(componentAAfficher : Type<unknown>) {
-    this.entry.clear();
-    const factory = this.resolver.resolveComponentFactory(componentAAfficher);
-    this.componentRef = this.entry.createComponent(factory);
-  }
-
-  destroyComponent() {
-      this.componentRef.destroy();
-  }
+  
 
 }

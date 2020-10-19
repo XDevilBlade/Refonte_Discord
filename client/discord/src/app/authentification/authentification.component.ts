@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, Input } from '@angular/core';
 import {NgForm} from '@angular/forms';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import {AppComponent} from '../app.component';
 import { InterfaceUtilisateurComponent } from '../interface-utilisateur/interface-utilisateur.component';
+import { GestionComponentService } from '../services/GestionComponent/gestion-component.service';
+import { AccessInstanceAppcomponentService } from '../services/AccessInstanceAppComponent/access-instance-appcomponent.service';
 
 declare var $: any;
 
@@ -12,13 +14,10 @@ declare var $: any;
   styleUrls: ['./authentification.component.css']
 })
 export class AuthentificationComponent implements OnInit {
-  
-  private httpClient : HttpClient;
-  private appComponent : AppComponent;
 
-  constructor(httpClient : HttpClient, appComponent : AppComponent) { 
-    this.httpClient = httpClient;
-    this.appComponent = appComponent;
+  constructor(private httpClient : HttpClient, 
+              private gestionComponentServiceConst :GestionComponentService, 
+              private accessInstanceAppcomponentService : AccessInstanceAppcomponentService) { 
   }
 
   ngOnInit(): void {
@@ -40,7 +39,7 @@ export class AuthentificationComponent implements OnInit {
         (messageSucceed) => {
           $('#resultatAuth').html(messageSucceed);
           $('#resultatAuth').css("color", "green");
-          this.appComponent.createComponent(InterfaceUtilisateurComponent);
+          this.gestionComponentServiceConst.createComponent(InterfaceUtilisateurComponent, this.accessInstanceAppcomponentService.instanceAppComponent);
         },
         (error) => {
           var messageErreur = error.error;
