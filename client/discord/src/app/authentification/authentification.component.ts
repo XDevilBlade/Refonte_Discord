@@ -1,10 +1,11 @@
-import { Component, OnInit, Output, Input } from '@angular/core';
+import { Component, OnInit, Output, Input, SimpleChanges } from '@angular/core';
 import {NgForm} from '@angular/forms';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import {AppComponent} from '../app.component';
 import { InterfaceUtilisateurComponent } from '../interface-utilisateur/interface-utilisateur.component';
 import { GestionComponentService } from '../services/GestionComponent/gestion-component.service';
 import { AccessInstanceAppcomponentService } from '../services/AccessInstanceAppComponent/access-instance-appcomponent.service';
+import { AccueilComponent } from '../accueil/accueil.component';
 
 declare var $: any;
 
@@ -16,12 +17,17 @@ declare var $: any;
 export class AuthentificationComponent implements OnInit {
 
   constructor(private httpClient : HttpClient, 
-              private gestionComponentServiceConst :GestionComponentService, 
+              private gestionComponentService :GestionComponentService, 
               private accessInstanceAppcomponentService : AccessInstanceAppcomponentService) { 
+                console.log("je construit le composant Authentification");
+  }
+
+  ngOnChanges(changes: SimpleChanges): void{
+    console.log("change element authentification");
   }
 
   ngOnInit(): void {
-    
+    console.log("j'initialise le composant Authentification");
   }
 
   onSubmit(form: NgForm) {
@@ -39,7 +45,8 @@ export class AuthentificationComponent implements OnInit {
         (messageSucceed) => {
           $('#resultatAuth').html(messageSucceed);
           $('#resultatAuth').css("color", "green");
-          this.gestionComponentServiceConst.createComponent(InterfaceUtilisateurComponent, this.accessInstanceAppcomponentService.instanceAppComponent);
+          this.gestionComponentService.createComponent(InterfaceUtilisateurComponent, this.accessInstanceAppcomponentService.instanceAppComponent.entry2);
+          this.ngOnDestroy();
         },
         (error) => {
           var messageErreur = error.error;
@@ -58,6 +65,8 @@ export class AuthentificationComponent implements OnInit {
     $('#'+baliseAFaireApparaitre+'').css("display", "block");
   }
 
-
+  ngOnDestroy():void{
+    this.gestionComponentService.destroyComponent(AccueilComponent);
+  }
 
 }

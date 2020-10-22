@@ -13,20 +13,29 @@ declare var $: any;
 })
 export class AppComponent implements OnInit{
   
-  componentRef: any;
-  
+ 
   @ViewChild('authentificationcontainer', { read: ViewContainerRef }) entry: ViewContainerRef;
-  constructor(private resolver: ComponentFactoryResolver, 
+  @ViewChild('interfaceutilisateurcontainer', { read: ViewContainerRef }) entry2: ViewContainerRef;
+
+  constructor(
               private gestionComponentService : GestionComponentService, private accessInstanceAppcomponentService : AccessInstanceAppcomponentService){
                 this.accessInstanceAppcomponentService.changeInstanceAppComponent = this;
+                
+                
   }
 
   ngOnInit(){
+ 
+    console.log("j'initialise appcomponent");
     const accessInstanceAppcomponentServiceConst = this.accessInstanceAppcomponentService;
     const gestionComponentServiceConst = this.gestionComponentService;
     $( document ).ready(function() {
-      gestionComponentServiceConst.createComponent(AccueilComponent, accessInstanceAppcomponentServiceConst.instanceAppComponent);
+      gestionComponentServiceConst.createComponent(AccueilComponent,accessInstanceAppcomponentServiceConst.instanceAppComponent.entry);
     });
+  }  
+    
+  ngOnDestroy():void{
+   
   }
 
   
