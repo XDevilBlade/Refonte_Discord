@@ -12,7 +12,6 @@ import { InterfaceUtilisateurComponent } from './interface-utilisateur/interface
 import { MenuContactsChannelsComponent } from './menu-contacts-channels/menu-contacts-channels.component';
 import { ConversationComponent } from './conversation/conversation.component';
 import { GestionComponentService } from './services/GestionComponent/gestion-component.service';
-import { AccessInstanceAppcomponentService } from './services/AccessInstanceAppComponent/access-instance-appcomponent.service';
 
 
 @NgModule({

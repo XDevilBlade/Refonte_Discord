@@ -11,7 +11,10 @@ export class GestionComponentService {
   createComponent(componentInstance: any, viewContainerRef: any){
       const componentFactory = this.componentFactoryResolver.resolveComponentFactory(componentInstance);
       viewContainerRef.clear();
-      this.mapComponentRef[componentInstance.name] = viewContainerRef.createComponent(componentFactory);
+      var componentRef: ComponentRef<any> = viewContainerRef.createComponent(componentFactory);
+      componentRef.instance.entry = viewContainerRef;
+      console.log(componentRef.instance);
+      this.mapComponentRef[componentInstance.name] = componentRef;
   }
 
   destroyComponent(componentInstance: any) {

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewContainerRef, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-accueil',
@@ -7,9 +7,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AccueilComponent implements OnInit {
 
+  private entry : ViewContainerRef;
+
   constructor() { }
 
   ngOnInit(): void {
+    console.log("accueil");
+    console.log(this.entry);
+    console.log("/*******************************/");
+  }
+
+  ngOnDestroy():void{
+    console.log("je détruit le composant Accueil");
   }
 
 }

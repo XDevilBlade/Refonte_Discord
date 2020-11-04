@@ -1,10 +1,9 @@
-import { Component, OnInit, Output, Input, SimpleChanges } from '@angular/core';
+import { Component, OnInit, Output, Input, SimpleChanges, ViewContainerRef } from '@angular/core';
 import {NgForm} from '@angular/forms';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import {AppComponent} from '../app.component';
 import { InterfaceUtilisateurComponent } from '../interface-utilisateur/interface-utilisateur.component';
 import { GestionComponentService } from '../services/GestionComponent/gestion-component.service';
-import { AccessInstanceAppcomponentService } from '../services/AccessInstanceAppComponent/access-instance-appcomponent.service';
 import { AccueilComponent } from '../accueil/accueil.component';
 
 declare var $: any;
@@ -16,9 +15,10 @@ declare var $: any;
 })
 export class AuthentificationComponent implements OnInit {
 
+  private entry: ViewContainerRef;
+
   constructor(private httpClient : HttpClient, 
-              private gestionComponentService :GestionComponentService, 
-              private accessInstanceAppcomponentService : AccessInstanceAppcomponentService) { 
+              private gestionComponentService :GestionComponentService) { 
                 console.log("je construit le composant Authentification");
   }
 
@@ -45,7 +45,8 @@ export class AuthentificationComponent implements OnInit {
         (messageSucceed) => {
           $('#resultatAuth').html(messageSucceed);
           $('#resultatAuth').css("color", "green");
-          this.gestionComponentService.createComponent(InterfaceUtilisateurComponent, this.accessInstanceAppcomponentService.instanceAppComponent.entry2);
+          console.log(this.entry)
+          //this.gestionComponentService.createComponent(InterfaceUtilisateurComponent, this.entry);
           this.ngOnDestroy();
         },
         (error) => {

@@ -22,7 +22,7 @@ import com.rtaillandier.discord.repositories.UtilisateursRepository;
 
 import utilitaires.Identifiant;
 
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin
 @RestController
 public class ControllerUtilisateurs {
 
