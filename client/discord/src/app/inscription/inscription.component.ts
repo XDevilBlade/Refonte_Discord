@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewContainerRef } from '@angular/core';
 import {NgForm} from '@angular/forms';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+import { GestionComponentService } from '../services/GestionComponent/gestion-component.service';
+import { AuthentificationComponent } from '../authentification/authentification.component';
 
 declare var $: any;
 
@@ -11,10 +13,9 @@ declare var $: any;
 })
 export class InscriptionComponent implements OnInit {
 
-  private httpClient : HttpClient;
+  private entryParent: ViewContainerRef;
 
-  constructor(httpClient : HttpClient) { 
-    this.httpClient = httpClient;
+  constructor(private httpClient : HttpClient, private gestionComponentService : GestionComponentService) { 
   }
 
   ngOnInit(): void {
@@ -44,9 +45,8 @@ export class InscriptionComponent implements OnInit {
       );
   }
 
-  hideContentPanelInscription(){
-    $('#content_panel_inscription').css("display", "none");
-    $('#content_panel_authentification').css("display", "block");
+  goPageAuthentification(){
+    this.gestionComponentService.createComponent(AuthentificationComponent, this.entryParent);
   }
 
 }

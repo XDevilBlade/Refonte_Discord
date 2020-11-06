@@ -1,4 +1,9 @@
-import { Component, OnInit, ViewContainerRef, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, ViewContainerRef, Input, Output, EventEmitter, ViewChild } from '@angular/core';
+import { GestionComponentService } from '../services/GestionComponent/gestion-component.service';
+import { InterfaceUtilisateurComponent } from '../interface-utilisateur/interface-utilisateur.component';
+import { AuthentificationComponent } from '../authentification/authentification.component';
+
+declare var $: any;
 
 @Component({
   selector: 'app-accueil',
@@ -7,18 +12,22 @@ import { Component, OnInit, ViewContainerRef, Input, Output, EventEmitter } from
 })
 export class AccueilComponent implements OnInit {
 
-  private entry : ViewContainerRef;
+  @ViewChild('accueil', { read: ViewContainerRef }) entryChild: ViewContainerRef;
 
-  constructor() { }
+  private entryParent : ViewContainerRef;
+
+  constructor(private gestionComponentService : GestionComponentService) { }
 
   ngOnInit(): void {
-    console.log("accueil");
-    console.log(this.entry);
-    console.log("/*******************************/");
+    const instanceAccueil = this;
+    const gestionComponentServiceConst = this.gestionComponentService;
+    $( document ).ready(function() {
+      gestionComponentServiceConst.createComponent(AuthentificationComponent,instanceAccueil.entryChild);
+    });
   }
 
   ngOnDestroy():void{
-    console.log("je détruit le composant Accueil");
+    this.gestionComponentService.createComponent(InterfaceUtilisateurComponent, this.entryParent);
   }
 
 }
