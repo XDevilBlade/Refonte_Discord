@@ -18,17 +18,15 @@ export class AppComponent implements OnInit{
                 
   }
 
-  ngOnInit(){
- 
-    console.log("j'initialise appcomponent");
-    const instanceAppComponent = this;
-    const gestionComponentServiceConst = this.gestionComponentService;
-    $( document ).ready(function() {
-      gestionComponentServiceConst.createComponent(AccueilComponent,instanceAppComponent.entry);
-    });
+  ngOnInit(): void{
+    
+  }
+
+  ngAfterViewInit(){
+    this.gestionComponentService.createComponent(AccueilComponent,this.entry);
   }  
     
-  ngOnDestroy():void{
+  ngOnDestroy(): void{
    
   }
 

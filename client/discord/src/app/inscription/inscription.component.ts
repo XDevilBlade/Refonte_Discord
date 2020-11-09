@@ -16,9 +16,11 @@ export class InscriptionComponent implements OnInit {
   private entryParent: ViewContainerRef;
 
   constructor(private httpClient : HttpClient, private gestionComponentService : GestionComponentService) { 
+    
   }
 
   ngOnInit(): void {
+
   }
 
   onSubmit(form: NgForm) {

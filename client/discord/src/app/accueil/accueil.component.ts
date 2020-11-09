@@ -16,14 +16,12 @@ export class AccueilComponent implements OnInit {
 
   private entryParent : ViewContainerRef;
 
-  constructor(private gestionComponentService : GestionComponentService) { }
+  constructor(private gestionComponentService : GestionComponentService) { 
 
-  ngOnInit(): void {
-    const instanceAccueil = this;
-    const gestionComponentServiceConst = this.gestionComponentService;
-    $( document ).ready(function() {
-      gestionComponentServiceConst.createComponent(AuthentificationComponent,instanceAccueil.entryChild);
-    });
+  }
+
+  ngAfterContentInit(): void {
+    this.gestionComponentService.createComponent(AuthentificationComponent,this.entryChild);
   }
 
   ngOnDestroy():void{

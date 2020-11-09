@@ -11,7 +11,7 @@ import { AccueilComponent } from './accueil/accueil.component';
 import { InterfaceUtilisateurComponent } from './interface-utilisateur/interface-utilisateur.component';
 import { MenuContactsChannelsComponent } from './menu-contacts-channels/menu-contacts-channels.component';
 import { ConversationComponent } from './conversation/conversation.component';
-import { GestionComponentService } from './services/GestionComponent/gestion-component.service';
+import { TchatComponent } from './tchat/tchat.component';
 
 
 @NgModule({
@@ -22,7 +22,8 @@ import { GestionComponentService } from './services/GestionComponent/gestion-com
     AccueilComponent,
     InterfaceUtilisateurComponent,
     MenuContactsChannelsComponent,
-    ConversationComponent
+    ConversationComponent,
+    TchatComponent
   ],
   imports: [
     BrowserModule,
@@ -32,10 +33,6 @@ import { GestionComponentService } from './services/GestionComponent/gestion-com
   ],
   providers: [
   ],
-  bootstrap: [AppComponent],
-  entryComponents: [
-    AccueilComponent,
-    InterfaceUtilisateurComponent
-  ]
+  bootstrap: [AppComponent]
 })
 export class AppModule { }

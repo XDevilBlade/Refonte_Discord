@@ -23,12 +23,8 @@ export class AuthentificationComponent implements OnInit {
                 console.log("je construit le composant Authentification");
   }
 
-  ngOnChanges(changes: SimpleChanges): void{
-    console.log("change element authentification");
-  }
-
   ngOnInit(): void {
-    console.log("j'initialise le composant Authentification");
+    
   }
 
   onSubmit(form: NgForm) {
