@@ -20,6 +20,10 @@ export class AccueilComponent implements OnInit {
 
   }
 
+  ngOnInit(): void{
+    
+  }
+
   ngAfterContentInit(): void {
     this.gestionComponentService.createComponent(AuthentificationComponent,this.entryChild);
   }

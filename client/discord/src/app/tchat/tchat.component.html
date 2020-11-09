@@ -1,1 +1,13 @@
-<p>tchat works!</p>
+<div class="container-fluid">
+    <app-conversation></app-conversation>
+    <div class="container">
+        <form #f="ngForm" (ngSubmit)="onSubmit(f)" >
+            <div class="input-group mb-3">
+                <input type="text" id="message" class="form-control" name="message" ngModel required/>
+                <div class="input-group-append">
+                    <button class="btn btn-primary" type="submit" [disabled]="f.invalid">Envoyer</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>    

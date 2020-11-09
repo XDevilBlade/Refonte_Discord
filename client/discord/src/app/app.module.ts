@@ -10,8 +10,8 @@ import { InscriptionComponent } from './inscription/inscription.component';
 import { AccueilComponent } from './accueil/accueil.component';
 import { InterfaceUtilisateurComponent } from './interface-utilisateur/interface-utilisateur.component';
 import { MenuContactsChannelsComponent } from './menu-contacts-channels/menu-contacts-channels.component';
-import { ConversationComponent } from './conversation/conversation.component';
 import { TchatComponent } from './tchat/tchat.component';
+import { ConversationComponent } from './conversation/conversation.component';
 
 
 @NgModule({
@@ -22,8 +22,8 @@ import { TchatComponent } from './tchat/tchat.component';
     AccueilComponent,
     InterfaceUtilisateurComponent,
     MenuContactsChannelsComponent,
-    ConversationComponent,
-    TchatComponent
+    TchatComponent,
+    ConversationComponent
   ],
   imports: [
     BrowserModule,

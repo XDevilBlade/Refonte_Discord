@@ -1,0 +1,11 @@
+.container-fluid{
+    height: 100%;
+    padding: 0.2%;
+    background-color: black;
+    opacity: 1;
+    overflow-y: auto;
+}
+
+form{
+    width: 100%; 
+}
