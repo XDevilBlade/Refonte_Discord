@@ -12,6 +12,7 @@ import { InterfaceUtilisateurComponent } from './interface-utilisateur/interface
 import { MenuContactsChannelsComponent } from './menu-contacts-channels/menu-contacts-channels.component';
 import { TchatComponent } from './tchat/tchat.component';
 import { ConversationComponent } from './conversation/conversation.component';
+import { AngularResizedEventModule } from 'angular-resize-event';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { ConversationComponent } from './conversation/conversation.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    AngularResizedEventModule
   ],
   providers: [
   ],

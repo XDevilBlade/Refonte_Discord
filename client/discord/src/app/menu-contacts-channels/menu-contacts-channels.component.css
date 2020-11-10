@@ -1,0 +1,24 @@
+.container-fluid{
+    background-color: black;
+    height: 100%;
+    overflow-y: auto;
+    padding: 0;
+}
+
+#title{
+    text-align: center;
+    color: white;
+    font-size: 3vw;
+}
+
+#img_icone_menu{
+    height: 8vw;
+    width: 9vw;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#icone_menu{
+    display: none;
+}
