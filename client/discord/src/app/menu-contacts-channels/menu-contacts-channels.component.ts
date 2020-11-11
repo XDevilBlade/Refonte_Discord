@@ -10,8 +10,7 @@ declare var $: any;
 })
 export class MenuContactsChannelsComponent implements OnInit {
   
-  private width: number;
-  private height: number;
+  
   
   constructor() { }
 
@@ -20,16 +19,37 @@ export class MenuContactsChannelsComponent implements OnInit {
   }
 
   onResized(event: ResizedEvent) {
-    this.width = event.newWidth;
-    this.height = event.newHeight;
-    var element = document.getElementById("menu-contacts-channels");
-    if (this.checkOverflowX(element)) {
-      $("#icone_menu").css("display","block");
-      $(".nav-item").css("display","none");
-    } else {
+    var width : number = event.newWidth;
+    var height  : number = event.newHeight;
+    var element = document.body;
+    console.log(element.scrollWidth);
+    /*if (element.scrollWidth>767) {
       $("#icone_menu").css("display","none");
       $(".nav-item").css("display","block");
+    } else {
+      $("#icone_menu").css("display","block");
+      $(".nav-item").css("display","none");
+      
     }
+    /*var element = document.getElementById("menu-contacts-channels");
+    if (this.checkOverflowX(element)) {
+      
+    } else {
+      
+    }*/
+  }
+
+  eventButtonToggle(event : Event){
+    var isAriaExpanded = event.srcElement.getAttribute("aria-expanded");
+    var element = document.getElementById("col-tchat");
+    
+    $("#multiCollapseExample1").toggleClass('in');
+    /*if (isAriaExpanded==="false") {
+      element.setAttribute("class", "col-8");
+    } else {
+      element.setAttribute("class", "col-10");
+    }*/
+    
   }
 
   checkOverflowX (element : any) {

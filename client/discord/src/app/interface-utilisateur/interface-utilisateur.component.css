@@ -9,7 +9,8 @@
     -webkit-box-shadow: 0px 2px 6px 3px rgba(0,0,0,0.4); 
     box-shadow: 0px 2px 6px 3px rgba(0,0,0,0.4);
     opacity: 0.4;
-    overflow: hidden;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
 [class^="col"] {
@@ -26,4 +27,20 @@
 
 #col-tchat{
     padding-left: 5px;
+}
+
+#multiCollapseExample1 {
+    -webkit-transition: width 2s ease;
+    -moz-transition: width 2s ease;
+    -o-transition: width 2s ease;
+    transition: width 2s ease;
+
+    background: yellow;
+
+    height: 100%;
+
+    width: 0px;
+}
+#multiCollapseExample1.in {
+    width: 220px;
 }
