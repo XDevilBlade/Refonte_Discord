@@ -12,10 +12,12 @@ export class MenuContactsChannelsComponent implements OnInit {
   
   
   
-  constructor() { }
+  constructor() { 
+    console.log("je construit le composant du menu");
+  }
 
   ngOnInit(): void {
-    
+    console.log("j'initialise le composant du menu");
   }
 
   onResized(event: ResizedEvent) {
@@ -40,16 +42,11 @@ export class MenuContactsChannelsComponent implements OnInit {
   }
 
   eventButtonToggle(event : Event){
-    var isAriaExpanded = event.srcElement.getAttribute("aria-expanded");
-    var element = document.getElementById("col-tchat");
     
-    $("#multiCollapseExample1").toggleClass('in');
-    /*if (isAriaExpanded==="false") {
-      element.setAttribute("class", "col-8");
-    } else {
-      element.setAttribute("class", "col-10");
-    }*/
-    
+    $('.modal')
+        .prop('class', 'modal fade') // revert to default
+        .addClass( $(this).data('direction') );
+    $('.modal').modal('show');
   }
 
   checkOverflowX (element : any) {

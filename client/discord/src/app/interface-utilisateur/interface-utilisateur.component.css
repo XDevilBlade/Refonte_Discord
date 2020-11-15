@@ -21,26 +21,36 @@
     height: 100%;
 }  
 
-#col-menu-contacts-channels{
+#col-menu-contacts-channels, #col-vide{
     padding-right: 5px;
 }
 
-#col-tchat{
+#col-tchat, #col-modal-dialog{
     padding-left: 5px;
 }
 
-#multiCollapseExample1 {
-    -webkit-transition: width 2s ease;
-    -moz-transition: width 2s ease;
-    -o-transition: width 2s ease;
-    transition: width 2s ease;
-
-    background: yellow;
-
+.modal.fade .modal-dialog {
+    margin: 0;
     height: 100%;
-
-    width: 0px;
+    left: -320px;
+    -webkit-transition: opacity 0.3s linear, right 0.3s ease-out;
+		   -moz-transition: opacity 0.3s linear, right 0.3s ease-out;
+		     -o-transition: opacity 0.3s linear, right 0.3s ease-out;
+		        transition: opacity 0.3s linear, right 0.3s ease-out;
+    
 }
-#multiCollapseExample1.in {
-    width: 220px;
+
+.modal.fade.show .modal-dialog {
+    margin: 0;
+    height: 100%;
+    left: 0;
+    -webkit-transition: opacity 0.3s linear, left 0.3s ease-out;
+		   -moz-transition: opacity 0.3s linear, left 0.3s ease-out;
+		     -o-transition: opacity 0.3s linear, left 0.3s ease-out;
+		        transition: opacity 0.3s linear, left 0.3s ease-out;
+    
+}
+
+.modal-content,app-menu-contacts-channels{
+    height: 100%;
 }
