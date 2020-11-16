@@ -22,7 +22,7 @@ export class AppComponent implements OnInit{
     
   }
 
-  ngAfterViewInit(){
+  ngAfterViewInit(): void{
     this.gestionComponentService.createComponent(AccueilComponent,this.entry);
   }  
     

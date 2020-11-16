@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ResizedEvent } from 'angular-resize-event';
 
 declare var $: any;
@@ -10,14 +10,26 @@ declare var $: any;
 })
 export class MenuContactsChannelsComponent implements OnInit {
   
-  
+  @Input()isFenetreResponsive : boolean;
   
   constructor() { 
     console.log("je construit le composant du menu");
   }
 
   ngOnInit(): void {
-    console.log("j'initialise le composant du menu");
+    
+
+    if (this.isFenetreResponsive === false) {
+      $("#col-btnToggleClose").css("display","none");
+      if (document.body.clientWidth>1083) {
+        $("#container-btnToggleShow").removeClass("d-flex");
+        $("#container-btnToggleShow").css("display","none");
+      } else {
+        $("#nav-channels-contacts").css("display","none");
+        $("#container-btnToggleShow").addClass("d-flex");
+        $("#container-btnToggleShow").css("display","block");
+      }
+    }
   }
 
   onResized(event: ResizedEvent) {
@@ -41,12 +53,21 @@ export class MenuContactsChannelsComponent implements OnInit {
     }*/
   }
 
-  eventButtonToggle(event : Event){
+  eventButtonToggleShow(){
+    $('#myModal').on('show.bs.modal', function (e) {
+      $("#container-btnToggleShow").removeClass("d-flex");
+      $("#container-btnToggleShow").css("display","none");
+    });
+    $('#myModal').modal({
+      show: true,
+      keyboard: false,
+      backdrop: 'static'
+    });
     
-    $('.modal')
-        .prop('class', 'modal fade') // revert to default
-        .addClass( $(this).data('direction') );
-    $('.modal').modal('show');
+  }
+
+  eventButtonToggleClose(){
+    $('#myModal').modal('hide');
   }
 
   checkOverflowX (element : any) {
@@ -64,5 +85,6 @@ export class MenuContactsChannelsComponent implements OnInit {
       return false;
     }
   }
+  
 
 }
