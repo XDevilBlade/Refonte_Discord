@@ -12,8 +12,15 @@
     font-size: 2vw;
 }
 
+[class^="col"] {
+    height: 100%;
+}
 
-#container-btnToggleShow{
+.row{
+    height: 100%;
+}  
+
+#container-btnToggleClose{
     height: 100%;
 }
 
@@ -25,12 +32,11 @@
     margin-right: auto;
 }
 
-#btnToggleShow{
-    height: 7vw;
-    width: 7vw;
+#btnToggleClose{
+    height: 4vw;
+    width: 4vw;
     cursor: pointer;
 }
-
 
 #icone_menu{
     display: none;

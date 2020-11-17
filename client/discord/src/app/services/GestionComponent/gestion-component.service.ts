@@ -11,9 +11,7 @@ export class GestionComponentService {
   createComponent(componentInstance: any, viewContainerRef: any){
       const componentFactory = this.componentFactoryResolver.resolveComponentFactory(componentInstance);
       viewContainerRef.clear();
-      console.log("avant la création du composant");
       var componentRef: ComponentRef<any> = viewContainerRef.createComponent(componentFactory);
-      console.log("après la création du composant");
       componentRef.instance.entryParent = viewContainerRef;
       this.mapComponentRef[componentInstance.name] = componentRef;
   }

@@ -9,82 +9,33 @@ declare var $: any;
   styleUrls: ['./menu-contacts-channels.component.css']
 })
 export class MenuContactsChannelsComponent implements OnInit {
-  
-  @Input()isFenetreResponsive : boolean;
+
   
   constructor() { 
     console.log("je construit le composant du menu");
   }
 
   ngOnInit(): void {
-    
-
-    if (this.isFenetreResponsive === false) {
-      $("#col-btnToggleClose").css("display","none");
-      if (document.body.clientWidth>1083) {
-        $("#container-btnToggleShow").removeClass("d-flex");
-        $("#container-btnToggleShow").css("display","none");
-      } else {
-        $("#nav-channels-contacts").css("display","none");
-        $("#container-btnToggleShow").addClass("d-flex");
-        $("#container-btnToggleShow").css("display","block");
-      }
+    if (document.body.clientWidth>1083) {
+      $("#container-btnToggleShow").removeClass("d-flex");
+      $("#container-btnToggleShow").css("display","none");
+    } else {
+      $("#nav-channels-contacts").css("display","none");
+      $("#container-btnToggleShow").addClass("d-flex");
+      $("#container-btnToggleShow").css("display","block");
     }
   }
 
   onResized(event: ResizedEvent) {
-    var width : number = event.newWidth;
-    var height  : number = event.newHeight;
-    var element = document.body;
-    console.log(element.scrollWidth);
-    /*if (element.scrollWidth>767) {
-      $("#icone_menu").css("display","none");
-      $(".nav-item").css("display","block");
-    } else {
-      $("#icone_menu").css("display","block");
-      $(".nav-item").css("display","none");
-      
-    }
-    /*var element = document.getElementById("menu-contacts-channels");
-    if (this.checkOverflowX(element)) {
-      
-    } else {
-      
-    }*/
-  }
-
-  eventButtonToggleShow(){
-    $('#myModal').on('show.bs.modal', function (e) {
+    if (document.body.clientWidth>1083) {
+      $("#nav-channels-contacts").css("display","block");
       $("#container-btnToggleShow").removeClass("d-flex");
       $("#container-btnToggleShow").css("display","none");
-    });
-    $('#myModal').modal({
-      show: true,
-      keyboard: false,
-      backdrop: 'static'
-    });
-    
-  }
-
-  eventButtonToggleClose(){
-    $('#myModal').modal('hide');
-  }
-
-  checkOverflowX (element : any) {
-    if (element.offsetWidth < element.scrollWidth) {
-      return true;
     } else {
-      return false;
+      $("#nav-channels-contacts").css("display","none");
+      $("#container-btnToggleShow").addClass("d-flex");
+      $("#container-btnToggleShow").css("display","block");
     }
-  }
-
-  checkOverflowY (element : any) {
-    if (element.offsetHeight < element.scrollHeight) {
-      return true;
-    } else {
-      return false;
-    }
-  }
-  
+  } 
 
 }

@@ -13,6 +13,7 @@ import { MenuContactsChannelsComponent } from './menu-contacts-channels/menu-con
 import { TchatComponent } from './tchat/tchat.component';
 import { ConversationComponent } from './conversation/conversation.component';
 import { AngularResizedEventModule } from 'angular-resize-event';
+import { MenuContactsChannelsResponsiveComponent } from './menu-contacts-channels-responsive/menu-contacts-channels-responsive.component';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { AngularResizedEventModule } from 'angular-resize-event';
     InterfaceUtilisateurComponent,
     MenuContactsChannelsComponent,
     TchatComponent,
-    ConversationComponent
+    ConversationComponent,
+    MenuContactsChannelsResponsiveComponent
   ],
   imports: [
     BrowserModule,

@@ -32,7 +32,7 @@
 .modal.fade .modal-dialog {
     margin: 0;
     height: 100%;
-    left: -320px;
+    left: -500px;
     -webkit-transition: opacity 0.3s linear, right 0.3s ease-out;
 		   -moz-transition: opacity 0.3s linear, right 0.3s ease-out;
 		     -o-transition: opacity 0.3s linear, right 0.3s ease-out;
@@ -52,5 +52,9 @@
 }
 
 .modal-content,app-menu-contacts-channels{
+    height: 100%;
+}
+
+app-menu-contacts-channels-responsive{
     height: 100%;
 }

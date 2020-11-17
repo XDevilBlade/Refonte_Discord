@@ -2,7 +2,7 @@
     <div class="container-fluid" id="content_interface_utilisateur">
         <div class="row">
             <div class="col-2" id="col-menu-contacts-channels">
-                <app-menu-contacts-channels [isFenetreResponsive]="false"></app-menu-contacts-channels>
+                <app-menu-contacts-channels></app-menu-contacts-channels>
             </div>            
             <div class="col-10" id="col-tchat">
                 <app-tchat></app-tchat>
@@ -14,7 +14,7 @@
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <app-menu-contacts-channels [isFenetreResponsive]="true"></app-menu-contacts-channels>     
+            <app-menu-contacts-channels-responsive></app-menu-contacts-channels-responsive>     
         </div>
     </div>
 </div>
