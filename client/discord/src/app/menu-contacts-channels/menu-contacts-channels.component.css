@@ -17,14 +17,6 @@
     height: 100%;
 }
 
-#img_icone_menu{
-    height: 119px;
-    width: 143px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-}
-
 #btnToggleShow{
     height: 7vw;
     width: 7vw;

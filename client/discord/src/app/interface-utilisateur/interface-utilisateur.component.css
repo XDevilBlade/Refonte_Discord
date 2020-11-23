@@ -51,10 +51,6 @@
     
 }
 
-.modal-content,app-menu-contacts-channels{
-    height: 100%;
-}
-
-app-menu-contacts-channels-responsive{
+.modal-content,app-menu-contacts-channels, app-menu-contacts-channels-responsive{
     height: 100%;
 }

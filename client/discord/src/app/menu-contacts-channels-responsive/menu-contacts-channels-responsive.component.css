@@ -24,20 +24,9 @@
     height: 100%;
 }
 
-#img_icone_menu{
-    height: 119px;
-    width: 143px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-}
-
 #btnToggleClose{
     height: 4vw;
     width: 4vw;
     cursor: pointer;
 }
 
-#icone_menu{
-    display: none;
-}
