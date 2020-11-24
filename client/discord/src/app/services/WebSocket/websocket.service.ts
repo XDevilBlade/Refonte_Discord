@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import { InjectableRxStompConfig, RxStompService } from '@stomp/ng2-stompjs';
+import { RxStompService } from '@stomp/ng2-stompjs';
 import { Observable } from 'rxjs';
 
-import { SocketResponse, WebSocketOptions } from '../../models';
+import { WebSocketOptions } from '../../models';
 import { StompConfig } from '@stomp/stompjs';
 
 @Injectable({
@@ -16,10 +16,8 @@ export class WebsocketService {
 
   constructor(
     private stompService: RxStompService,
-    private updatedStompConfig: InjectableRxStompConfig,
     private options: WebSocketOptions
-    ) {
-    // Update StompJs configuration.
+    ){
     // Initialise a list of possible subscribers.
     this.createObservableSocket();
     // Activate subscription to broker.
@@ -54,7 +52,7 @@ export class WebsocketService {
    */
   private connect = () => {
     var stompConfig : StompConfig = {
-      brokerURL: "ws://localhost:8080/stomp",
+      brokerURL: this.options.urlBrokerStompEndpoints,
       heartbeatIncoming: 0,
       heartbeatOutgoing: 20000,
       reconnectDelay: 10000,
@@ -73,13 +71,13 @@ export class WebsocketService {
    * On each connect / reconnect, we subscribe all broker clients.
    */
   private onSocketConnect = frame => {
-    this.stompService.stompClient.subscribe(this.options.brokerEndpoint, this.socketListener);
+    this.stompService.stompClient.subscribe(this.options.messageBroker, this.socketListener);
   }
 
   private onSocketError = errorMsg => {
     console.log('Broker reported error: ' + errorMsg);
 
-    const response: SocketResponse = {
+    var response = {
       type: 'ERROR',
       message: errorMsg
     };
@@ -96,7 +94,7 @@ export class WebsocketService {
   }
 
   private getMessage = data => {
-    const response: SocketResponse = {
+    var response = {
       type: 'SUCCESS',
       message: data.body
     };
@@ -104,7 +102,7 @@ export class WebsocketService {
   }
 
   public sendMessage(message){
-    this.stompService.stompClient.publish({destination: "/topic/progress" , body: message});
+    this.stompService.stompClient.publish({destination: this.options.messageBroker , body: message});
   }
 
   /**
