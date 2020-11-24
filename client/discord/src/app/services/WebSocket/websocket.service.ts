@@ -13,12 +13,6 @@ export class WebsocketService {
   private obsStompConnection: Observable<any>;
   private subscribers: Array<any> = [];
   private subscriberIndex = 0;
-  private stompConfig: InjectableRxStompConfig = {
-    heartbeatIncoming: 0,
-    heartbeatOutgoing: 20000,
-    reconnectDelay: 10000,
-    debug: (str) => { console.log(str); }
-  };
 
   constructor(
     private stompService: RxStompService,
@@ -26,7 +20,6 @@ export class WebsocketService {
     private options: WebSocketOptions
     ) {
     // Update StompJs configuration.
-    this.stompConfig = {...this.stompConfig, ...this.updatedStompConfig};
     // Initialise a list of possible subscribers.
     this.createObservableSocket();
     // Activate subscription to broker.
@@ -60,13 +53,15 @@ export class WebsocketService {
    * Connect and activate the client to the broker.
    */
   private connect = () => {
-    console.log(this.updatedStompConfig);
     var stompConfig : StompConfig = {
       brokerURL: "ws://localhost:8080/stomp",
       heartbeatIncoming: 0,
       heartbeatOutgoing: 20000,
       reconnectDelay: 10000,
-      debug: (str) => { console.log(str); }
+      debug: (str) => { 
+        console.log("debug connect :");
+        console.log(str); 
+      }
     };
     this.stompService.stompClient.configure(stompConfig);
     this.stompService.stompClient.onConnect = this.onSocketConnect;
@@ -78,7 +73,6 @@ export class WebsocketService {
    * On each connect / reconnect, we subscribe all broker clients.
    */
   private onSocketConnect = frame => {
-    console.log(this.socketListener);
     this.stompService.stompClient.subscribe(this.options.brokerEndpoint, this.socketListener);
   }
 
@@ -104,9 +98,13 @@ export class WebsocketService {
   private getMessage = data => {
     const response: SocketResponse = {
       type: 'SUCCESS',
-      message: JSON.parse(data.body)
+      message: data.body
     };
     return response;
+  }
+
+  public sendMessage(message){
+    this.stompService.stompClient.publish({destination: "/topic/progress" , body: message});
   }
 
   /**

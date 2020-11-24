@@ -10,7 +10,7 @@ import { ProcessWebsocketService } from '../services/ProgressWebSocket/process-w
 export class TchatComponent implements OnInit {
 
   public title = 'Using WebSocket under Angular';
-  public progress: any = {};
+  public messagesRecus: any = {};
 
   constructor(private progressWebsocketService: ProcessWebsocketService) { }
 
@@ -19,7 +19,8 @@ export class TchatComponent implements OnInit {
   }
 
   onSubmit(form: NgForm) {
-    
+    var message = form.value.message;
+    this.progressWebsocketService.sendMessage(message);
   }
 
   private initProgressWebSocket = () => {
@@ -37,11 +38,9 @@ export class TchatComponent implements OnInit {
    * Apply result of the java server notification to the view.
    */
   private onNewProgressMsg = receivedMsg => {
-    console.log("je reçois");
-    console.log(receivedMsg.message);
     if (receivedMsg.type === 'SUCCESS') {
       console.log(receivedMsg.message);
-      this.progress = receivedMsg.message;
+      this.messagesRecus = receivedMsg.message;
     }
   }
 
