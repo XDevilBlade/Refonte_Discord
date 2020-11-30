@@ -71,7 +71,7 @@ export class WebsocketService {
    * On each connect / reconnect, we subscribe all broker clients.
    */
   private onSocketConnect = frame => {
-    this.stompService.stompClient.subscribe("/topic", this.socketListener);
+    this.stompService.stompClient.subscribe("/user/queue/reply", this.socketListener);
   }
 
   private onSocketError = errorMsg => {

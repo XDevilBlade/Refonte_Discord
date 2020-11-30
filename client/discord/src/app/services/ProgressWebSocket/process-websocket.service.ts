@@ -11,7 +11,7 @@ export class ProcessWebsocketService extends WebsocketService {
   constructor(stompService: RxStompService) {
     super(
       stompService,
-      new WebSocketOptions("/app/message", "ws://localhost:8080/stomp")
+      new WebSocketOptions("/app/sendtouser", "ws://localhost:8080/a")
     );
   }
 }

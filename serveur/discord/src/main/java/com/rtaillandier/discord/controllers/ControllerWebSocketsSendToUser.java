@@ -11,7 +11,7 @@ import org.springframework.stereotype.Controller;
 @Controller
 public class ControllerWebSocketsSendToUser {
 	
-	@MessageMapping("/sendtouser/message")
+	@MessageMapping("/sendtouser")
     @SendToUser("/queue/reply")
     public String processMessageFromClient(@Payload String message, Principal principal) throws Exception {
 		System.out.println(principal.getName()+" : "+message);
