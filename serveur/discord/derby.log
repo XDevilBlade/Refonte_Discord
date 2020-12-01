@@ -1,6 +1,6 @@
 ----------------------------------------------------------------
-Mon Nov 30 17:38:36 CET 2020:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance a816c00e-0176-1a05-3062-000007fa7238 
+Tue Dec 01 19:29:49 CET 2020:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance a816c00e-0176-1f91-5f7e-000003b7ed90 
 on database directory /home/remy/Documents/DataBase/Discord with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@512ddf17 
 Loaded from file:/root/.m2/repository/org/apache/derby/derby/10.14.2.0/derby-10.14.2.0.jar
 java.vendor=Oracle Corporation
