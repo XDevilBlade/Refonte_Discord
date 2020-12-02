@@ -12,7 +12,7 @@ import org.springframework.stereotype.Controller;
 public class ControllerWebSocketsSendToUser {
 	
 	@MessageMapping("/sendtouser")
-    @SendToUser("/queue/reply")
+    @SendToUser(destinations="/queue/reply", broadcast = true)
     public String processMessageFromClient(@Payload String message, Principal principal) throws Exception {
 		System.out.println(principal.getName()+" : "+message);
         return message;

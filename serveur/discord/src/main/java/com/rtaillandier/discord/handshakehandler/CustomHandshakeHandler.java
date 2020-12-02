@@ -24,11 +24,17 @@ public class CustomHandshakeHandler extends DefaultHandshakeHandler{
     protected Principal determineUser(ServerHttpRequest request,
                                       WebSocketHandler wsHandler,
                                       Map<String, Object> attributes) {
+
 		System.out.println("je suis dans la méthode determineUser");
 		UUID randomSessionID = UUID.randomUUID();
 		storeUUID.addSessionID(randomSessionID);
         // generate user name by UUID
-        return new StompPrincipal(randomSessionID.toString());
+		if (storeUUID.getListSessionsID().size()==0) {
+			return new StompPrincipal(randomSessionID.toString());
+		}
+        return new StompPrincipal(storeUUID.getListSessionsID().get(0).toString());
     }
+	
+	
 	
 }
