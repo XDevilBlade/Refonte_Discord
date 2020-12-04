@@ -15,4 +15,5 @@ Refonte du projet discord qui a été fait pendant la première année de Master
 - API Rest
 - Maven
 - Entity Beans
+- WebSocket
 - Langages de programmation utilisés : Java 11 / HTML 5 / CSS 3 / TypeScript
