@@ -34,7 +34,5 @@ public class CustomHandshakeHandler extends DefaultHandshakeHandler{
 		}
         return new StompPrincipal(storeUUID.getListSessionsID().get(0).toString());
     }
-	
-	
-	
+
 }
