@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
 import { RxStompService } from '@stomp/ng2-stompjs';
 import { Observable } from 'rxjs';
-
-import { WebSocketOptions } from '../../models';
+import { WebSocketOptions } from '../../models/websocket.options';
 import { StompConfig } from '@stomp/stompjs';
 
 @Injectable({
@@ -52,7 +51,7 @@ export class WebsocketService {
    */
   private connect = () => {
     var stompConfig : StompConfig = {
-      brokerURL: this.options.urlBrokerStompEndpoints,
+      brokerURL: this.options.urlWebSocket,
       heartbeatIncoming: 0,
       heartbeatOutgoing: 20000,
       reconnectDelay: 10000,
@@ -71,7 +70,7 @@ export class WebsocketService {
    * On each connect / reconnect, we subscribe all broker clients.
    */
   private onSocketConnect = frame => {
-    this.stompService.stompClient.subscribe("/user/queue/reply", this.socketListener);
+    this.stompService.stompClient.subscribe(this.options.messageBroker, this.socketListener);
   }
 
   private onSocketError = errorMsg => {
@@ -102,7 +101,7 @@ export class WebsocketService {
   }
 
   public sendMessage(message){
-    this.stompService.stompClient.publish({destination: this.options.messageBroker , body: message});
+    this.stompService.stompClient.publish({destination: this.options.destinationMessageController , body: message});
   }
 
   /**

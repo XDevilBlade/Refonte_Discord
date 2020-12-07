@@ -1,4 +1,4 @@
 export class WebSocketOptions {
-    constructor(public messageBroker: string, public urlBrokerStompEndpoints: string) {}
-  }
+  constructor(public urlWebSocket: string, public messageBroker: string, public destinationMessageController: string) {}
+}
 
